@@ -65,7 +65,6 @@ git merge --no-edit --no-commit --strategy-option theirs --allow-unrelated-histo
 # Checkout specific files from the current commit, ignoring errors
 git checkout ${commit_hash} templates/\*.json 2>/dev/null || true
 git checkout ${commit_hash} sections/\*.json 2>/dev/null || true
-git checkout ${commit_hash} locales/\*.json 2>/dev/null || true
 git checkout ${commit_hash} config/settings_data.json 2>/dev/null || true
 
 # Display the status after checkout

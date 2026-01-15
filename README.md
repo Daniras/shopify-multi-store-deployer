@@ -79,5 +79,13 @@ with:
 
 ## Workflow
 
-The action operates by merging changes from the specified 'from' branch into the 'to' branch. During the merge process, specific files related to Shopify theme configurations (e.g., template JSON files, section JSON files, locale JSON files, and settings_data.json) are selectively checked out and added to the commit, providing a granular control over the merge operation.
+The action operates by merging changes from the specified 'from' branch into the 'to' branch. During the merge process, specific files related to Shopify theme configurations are handled as follows:
+
+- **Locale files (`locales/*.json`)**: Synced from the 'from' branch to the 'to' branch, allowing translation updates to propagate across stores.
+- **Templates (`templates/*.json`)**: Protected in the 'to' branch to preserve store-specific template configurations.
+- **Sections (`sections/*.json`)**: Protected in the 'to' branch to preserve store-specific section configurations.
+- **Settings (`config/settings_data.json`)**: Protected in the 'to' branch to preserve store-specific theme settings.
+- **All other files**: Merged normally from the 'from' branch to the 'to' branch.
+
+This provides granular control over the merge operation, ensuring that code changes propagate while store-specific configurations remain intact.
 ```
